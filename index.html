@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <!-- Basic meta tags character encoding aur responsive design ke liye -->
+
+        <meta charset="UTF-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>SAWERA YASEEN - CV</title>
+
+        <style>
+
+            /* Sab elements ka basic styling reset karne ke liye */
+
+            * {
+
+                margin: 0;
+
+                padding: 0;
+
+                box-sizing: border-box;
+
+                font-family: Arial, sans-serif;
+
+            }
+
+            /* Main body ka styling */
+
+            body {
+
+                max-width: 1400px;
+
+                margin: 0 auto;
+
+                padding: 40px 120px;
+
+                background-color: white;
+
+                color: #333;
+
+                line-height: 1.5;
+
+            }
+
+            /* Header section ka grid layout */
+
+            .header {
+
+                display: grid;
+
+                grid-template-columns: 280px 1fr;
+
+                gap: 100px;
+
+                margin-bottom: 40px;
+
+                align-items: start;
+
+            }
+
+            /* Profile picture container ka styling */
+
+            .profile-container {
+
+                width: 280px;
+
+                height: 280px;
+
+                border-radius: 50%;
+
+                background-color: #f0f0f0;
+
+                border: 2px solid #e0e0e0;
+
+                overflow: hidden;
+
+                position: relative;
+
+            }
+
+            /* Profile image ka styling */
+
+            .profile-image {
+
+                width: 100%;
+
+                height: 100%;
+
+                object-fit: cover;
+
+                object-position: center;
+
+                display: block;
+
+            }
+
+            /* Agar image nahi hai to hide kar do */
+
+            img.profile-image:not([src]),
+
+            img.profile-image[src=""],
+
+            img.profile-image[src="profile-image.jpg"] {
+
+                display: none;
+
+            }
+
+            /* Header content ka styling */
+
+            .header-content {
+
+                display: flex;
+
+                flex-direction: column;
+
+                gap: 10px;
+
+                padding-left: 20px;
+
+            }
+
+            /* Name ka styling */
+
+            .header-content h1 {
+
+                font-size: 48px;
+
+                font-weight: bold;
+
+                margin-bottom: 5px;
+
+                color: #000;
+
+                display: inline-block;
+
+                width: fit-content;
+
+            }
+
+            /* Title ka styling */
+
+            .header-content h2 {
+
+                font-size: 24px;
+
+                font-weight: 600;
+
+                margin-bottom: 8px;
+
+                color: #000;
+
+                text-transform: uppercase;
+
+                letter-spacing: 0.5px;
+
+            }
+
+            /* Description paragraph ka styling */
+
+            .header-content p {
+
+                font-size: 13.5px;
+
+                line-height: 1.55;
+
+                color: #333;
+
+                text-align: justify;
+
+                margin-right: 0;
+
+                width: 430px;
+
+                padding-right: 0;
+
+                word-spacing: -0.2px;
+
+                letter-spacing: 0;
+
+                text-justify: inter-word;
+
+                margin-top: 0;
+
+            }
+
+            /* Main content ka grid layout */
+
+            .main-content {
+
+                display: grid;
+
+                grid-template-columns: 280px 1fr;
+
+                gap: 60px;
+
+            }
+
+            /* Section titles ka styling */
+
+            .section-title {
+
+                font-size: 28px;
+
+                font-weight: bold;
+
+                margin-bottom: 20px;
+
+                color: #000;
+
+            }
+
+            /* Contact section ka styling */
+
+            .contact-list {
+
+                list-style: none;
+
+            }
+
+            /* Contact list items ka styling */
+
+            .contact-list li {
+
+                margin-bottom: 15px;
+
+                display: flex;
+
+                align-items: center;
+
+                gap: 10px;
+
+                color: #333;
+
+            }
+
+            /* Education section ka styling */
+
+            .education-item {
+
+                margin-bottom: 20px;
+
+            }
+
+            /* Education items headings ka styling */
+
+            .education-item h3 {
+
+                font-weight: bold;
+
+                color: #000;
+
+                margin-bottom: 5px;
+
+                display: flex;
+
+                align-items: center;
+
+                gap: 10px;
+
+            }
+
+            /* Education items mein bullet points */
+
+            .education-item h3::before {
+
+                content: "•";
+
+                color: #1a365d;
+
+                font-size: 24px;
+
+                line-height: 1;
+
+            }
+
+            /* Education items paragraphs ka styling */
+
+            .education-item p {
+
+                color: #333;
+
+                margin-bottom: 3px;
+
+            }
+
+            /* Skills section ka styling */
+
+            .skills-grid {
+
+                display: grid;
+
+                gap: 10px;
+
+            }
+
+            /* Skill items ka styling */
+
+            .skill-item {
+
+                display: flex;
+
+                justify-content: space-between;
+
+                align-items: center;
+
+            }
+
+            /* Skill dots ka styling */
+
+            .skill-dots {
+
+                display: flex;
+
+                gap: 4px;
+
+            }
+
+            /* Skill dots ka basic styling */
+
+            .dot {
+
+                width: 12px;
+
+                height: 12px;
+
+                border-radius: 50%;
+
+                background-color: #1a365d;
+
+            }
+
+            /* Empty skill dots ka styling */
+
+            .dot.empty {
+
+                background-color: #e2e8f0;
+
+            }
+
+            /* Experience section ka styling */
+
+            .experience-item {
+
+                margin-bottom: 25px;
+
+            }
+
+            /* Experience header ka styling */
+
+            .experience-header {
+
+                display: flex;
+
+                justify-content: space-between;
+
+                align-items: center;
+
+                margin-bottom: 10px;
+
+            }
+
+            /* Experience items mein bullet points */
+
+            .experience-title::before {
+
+                content: "•";
+
+                color: #1a365d;
+
+                font-size: 24px;
+
+                line-height: 1;
+
+            }
+
+            /* Experience title ka styling */
+
+            .experience-title {
+
+                font-weight: bold;
+
+                color: #000;
+
+                display: flex;
+
+                align-items: center;
+
+                gap: 10px;
+
+            }
+
+            /* Experience date ka styling */
+
+            .experience-date {
+
+                color: #666;
+
+            }
+
+            /* Experience list ka styling */
+
+            .experience-list {
+
+                list-style: none;
+
+                padding-left: 0;
+
+            }
+
+            /* Experience list items ka styling */
+
+            .experience-list li {
+
+                position: relative;
+
+                padding-left: 15px;
+
+                margin-bottom: 5px;
+
+                color: #333;
+
+            }
+
+            /* Experience list items mein bullet points */
+
+            .experience-list li::before {
+
+                content: "•";
+
+                position: absolute;
+
+                left: 0;
+
+            }
+
+            /* Language section ka styling */
+
+            .language-section {
+
+                margin-bottom: 30px;
+
+            }
+
+            /* Language container ka styling */
+
+            .language-container {
+
+                display: flex;
+
+                gap: 50px;
+
+                max-width: 400px;
+
+            }
+
+            /* Language items ka styling */
+
+            .language-item {
+
+                flex: 1;
+
+            }
+
+            /* Language items paragraphs ka styling */
+
+            .language-item p {
+
+                margin-bottom: 8px;
+
+            }
+
+            /* Language bars ka styling */
+
+            .language-bar {
+
+                height: 6px;
+
+                background-color: #1a365d;
+
+                border-radius: 3px;
+
+                margin-bottom: 15px;
+
+                width: 120px;
+
+            }
+
+            /* Interests section ka grid layout */
+
+            .interests-grid {
+
+                display: grid;
+
+                grid-template-columns: 1fr 1fr;
+
+                gap: 15px;
+
+                color: #333;
+
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+
+        <!-- Header section mein profile picture aur basic info -->
+
+        <div class="header">
+
+            <!-- Profile picture container -->
+
+            <div class="profile-container">
+
+                <img src="https://media.licdn.com/dms/image/v2/D5603AQEROvTnxS0s9Q/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1701787760399?e=1750291200&v=beta&t=xz9eUKSBTBhmVxI6QcfpeZ2DMdAhje3jK5XRZ5bTMgo" alt="Sawera Yaseen" class="profile-image">
+
+            </div>
+
+            <!-- Header content mein name aur description -->
+
+            <div class="header-content">
+
+                <h1>SAWERA YASEEN</h1>
+
+                <h2>software engineer</h2>
+
+                <p>"I am eager to learn and grow in a dynamic environment that encourages research, innovation, and skill development. As a freelancer, I have worked as a Software Requirement Engineer, which has strengthened my analytical and documentation skills. I aim to contribute my knowledge and enthusiasm while continuously improving my abilities through challenging opportunities."</p>
+
+            </div>
+
+        </div>
+
+        <!-- Main content do columns mein divided -->
+
+        <div class="main-content">
+
+            <!-- Left column mein contact, education, aur skills -->
+
+            <div class="left-column">
+
+                <!-- Contact information section -->
+
+                <section>
+
+                    <h2 class="section-title">Contact</h2>
+
+                    <!-- Contact list mein icons ke saath -->
+
+                    <ul class="contact-list">
+
+                        <li>📱 +92 342 0650867</li>
+
+                        <li>📧 sawerayaseen36@gmail.com</li>
+
+                        <li>📍 Sadra Badra Sialkot, Pakistan</li>
+
+                    </ul>
+
+                </section>
+
+                <!-- Education details section -->
+
+                <section>
+
+                    <h2 class="section-title">Education</h2>
+
+                    <!-- Pehla education item -->
+
+                    <div class="education-item">
+
+                        <h3>BS HONS (software engineering)</h3>
+
+                        <p>university of management and technology</p>
+
+                        <p>2022-2026</p>
+
+                        <p>Daska Road Sialkot</p>
+
+                    </div>
+
+                    <!-- Doosra education item -->
+
+                    <div class="education-item">
+
+                        <h3>Intermediate in Computer Science (ICS)</h3>
+
+                        <p>BISE Gujranwala</p>
+
+                        <p>2020-2022</p>
+
+                    </div>
+
+                    <!-- Teesra education item -->
+
+                    <div class="education-item">
+
+                        <h3>Matriculation in art's</h3>
+
+                        <p>BISE Gujranwala</p>
+
+                        <p>2018-2020</p>
+
+                    </div>
+
+                </section>
+
+                <!-- Skills section mein visual indicators -->
+
+                <section>
+
+                    <h2 class="section-title">Skills</h2>
+
+                    <!-- Skills grid container -->
+
+                    <div class="skills-grid">
+
+                        <!-- Pehla skill item -->
+
+                        <div class="skill-item">
+
+                            <span class="skill-name">C, C++,C#,HTML</span>
+
+                            <!-- Skill level dots -->
+
+                            <div class="skill-dots">
+
+                                <span class="dot"></span>
+
+                                <span class="dot"></span>
+
+                                <span class="dot"></span>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Doosra skill item -->
+
+                        <div class="skill-item">
+
+                            <span class="skill-name">SRS</span>
+
+                            <!-- Skill level dots -->
+
+                            <div class="skill-dots">
+
+                                <span class="dot"></span>
+
+                                <span class="dot"></span>
+
+                                <span class="dot empty"></span>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Teesra skill item -->
+
+                        <div class="skill-item">
+
+                            <span class="skill-name">SQA</span>
+
+                            <!-- Skill level dots -->
+
+                            <div class="skill-dots">
+
+                                <span class="dot"></span>
+
+                                <span class="dot"></span>
+
+                                <span class="dot empty"></span>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Chautha skill item -->
+
+                        <div class="skill-item">
+
+                            <span class="skill-name">Visual Studio, Wondershare</span>
+
+                            <!-- Skill level dots -->
+
+                            <div class="skill-dots">
+
+                                <span class="dot"></span>
+
+                                <span class="dot"></span>
+
+                                <span class="dot"></span>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Panchwa skill item -->
+
+                        <div class="skill-item">
+
+                            <span class="skill-name">Teamwork</span>
+
+                            <!-- Skill level dots -->
+
+                            <div class="skill-dots">
+
+                                <span class="dot"></span>
+
+                                <span class="dot"></span>
+
+                                <span class="dot"></span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+            <!-- Right column mein experience aur additional info -->
+
+            <div class="right-column">
+
+                <!-- Work experience section -->
+
+                <section>
+
+                    <h2 class="section-title">Experience</h2>
+
+                    <!-- Pehla experience item -->
+
+                    <div class="experience-item">
+
+                        <!-- Experience header mein title aur date -->
+
+                        <div class="experience-header">
+
+                            <span class="experience-title">Software Requirement Engineer (Freelancer)</span>
+
+                            <span class="experience-date">Jan 2023- Jan 2024</span>
+
+                        </div>
+
+                        <!-- Experience details list -->
+
+                        <ul class="experience-list">
+
+                            <li>Gathered and documented software requirements for a grocery app for a client.</li>
+
+                            <li>Conducted requirement elicitation sessions and created detailed Software Requirement Specifications (SRS).</li>
+
+                            <li>Ensured clarity, feasibility, and completeness of requirements for the development team.</li>
+
+                        </ul>
+
+                    </div>
+
+                    <!-- Doosra experience item -->
+
+                    <div class="experience-item">
+
+                        <!-- Experience header mein title aur date -->
+
+                        <div class="experience-header">
+
+                            <span class="experience-title">C++ Developer (Freelancer on Upwork)</span>
+
+                            <span class="experience-date">Jan 2022 - Dec 2023</span>
+
+                        </div>
+
+                        <!-- Experience details list -->
+
+                        <ul class="experience-list">
+
+                            <li>Developed a C++ project for a client on Upwork, ensuring optimized code and functionality.</li>
+
+                            <li>Followed software development best practices to meet client requirements.</li>
+
+                            <li>Delivered a well-documented and efficient solution.</li>
+
+                        </ul>
+
+                    </div>
+
+                    <!-- Teesra experience item -->
+
+                    <div class="experience-item">
+
+                        <!-- Experience header mein title aur date -->
+
+                        <div class="experience-header">
+
+                            <span class="experience-title">Video & Photo Editor</span>
+
+                            <span class="experience-date">Jan 2019 - Dec 2045</span>
+
+                        </div>
+
+                        <!-- Experience details list -->
+
+                        <ul class="experience-list">
+
+                            <li>Edited and enhanced videos and photos for a YouTube channel.</li>
+
+                            <li>Applied professional editing techniques using Wondershare and other tools.</li>
+
+                            <li>Ensured high-quality visuals and smooth transitions for engaging content.</li>
+
+                        </ul>
+
+                    </div>
+
+                </section>
+
+                <!-- Language proficiency section -->
+
+                <section>
+
+                    <h2 class="section-title">Language</h2>
+
+                    <!-- Language container mein items -->
+
+                    <div class="language-container">
+
+                        <!-- Pehla language item -->
+
+                        <div class="language-item">
+
+                            <p>Urdu</p>
+
+                            <div class="language-bar"></div>
+
+                        </div>
+
+                        <!-- Doosra language item -->
+
+                        <div class="language-item">
+
+                            <p>English</p>
+
+                            <div class="language-bar"></div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- Interests aur hobbies section -->
+
+                <section>
+
+                    <h2 class="section-title">Interests & Hobbies</h2>
+
+                    <!-- Interests grid container -->
+
+                    <div class="interests-grid">
+
+                        <p>Coding and Software Development</p>
+
+                        <p>Software Quality Assurance (SQA)</p>
+
+                        <p>Project Management & Team Coordination</p>
+
+                        <p>News Reporting & Research</p>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </div>
+
+    </body>
+
+</html> 
